@@ -345,8 +345,8 @@ class Redis
         data.keys.count
       end
 
-      def exists(key)
-        data.key?(key)
+      def exists(*keys)
+        keys.all? { |key| data.key?(key) }
       end
 
       def llen(key)
